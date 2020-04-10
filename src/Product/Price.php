@@ -13,7 +13,7 @@ final class Price
 
     public function __construct(?string $amount)
     {
-        if (is_null($amount) || !is_numeric($amount) || $this->getPrecision($amount) > self::MAX_PRECISION) {
+        if (is_null($amount) || !is_numeric($amount) || (int)$amount <= 0 || $this->getPrecision($amount) > self::MAX_PRECISION) {
             throw new InvalidPriceException(sprintf('Invalid price provided: %s', $amount));
         }
 
