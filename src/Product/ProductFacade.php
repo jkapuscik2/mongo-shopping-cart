@@ -59,5 +59,4 @@ class ProductFacade
             throw new ProductNotFoundException("Product with id {$id} does not exist");
         }
     }
-
 }

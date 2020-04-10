@@ -21,7 +21,7 @@ class ShoppingCartFacade
         $this->productFacade = $productFacade;
     }
 
-    public function create()
+    public function create() : ShoppingCart
     {
         $newCart = new ShoppingCart();
         $this->dm->persist($newCart);
@@ -35,7 +35,7 @@ class ShoppingCartFacade
         }
     }
 
-    public function addProduct(string $cartId, string $productId)
+    public function addProduct(string $cartId, string $productId) : void
     {
         $cart = $this->get($cartId);
         $cart->addProduct($this->productFacade->get($productId));
@@ -48,7 +48,7 @@ class ShoppingCartFacade
         }
     }
 
-    public function removeProduct(string $cartId, string $productId)
+    public function removeProduct(string $cartId, string $productId) : void
     {
         $cart = $this->get($cartId);
         $cart->removeProduct($this->productFacade->get($productId));

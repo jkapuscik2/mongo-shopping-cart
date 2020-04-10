@@ -45,7 +45,7 @@ class ShoppingCart
     {
         $item = $this->products->filter(function ($item) use ($product) {
                 return $item->getProductId() == $product->getId();
-            })->first() ?? null;
+            })->first();
 
         return $item ? $item : null;
     }
