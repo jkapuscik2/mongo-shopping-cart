@@ -1,0 +1,46 @@
+products_create:
+  path: /products
+  controller: App\Controller\ProductController::create
+  methods: POST
+
+products_update:
+  path: /products/{id}
+  controller: App\Controller\ProductController::update
+  methods: PATCH
+  requirements:
+    id: '\w+'
+
+products_find:
+  path: /products/{id}
+  controller: App\Controller\ProductController::find
+  methods: GET
+  requirements:
+    id: '\w+'
+
+carts_create:
+  path: /carts
+  controller: App\Controller\ShoppingCartController::create
+  methods: POST
+
+carts_find:
+  path: /carts/{id}
+  controller: App\Controller\ShoppingCartController::find
+  methods: GET
+  requirements:
+    id: '\w+'
+
+cart_add_product:
+  path: /carts/{cartId}/{productId}
+  controller: App\Controller\ShoppingCartController::addProduct
+  methods: PATCH
+  requirements:
+    cartId: '\w+'
+    productId: '\w+'
+
+cart_remove_product:
+  path: /carts/{cartId}/{productId}
+  controller: App\Controller\ShoppingCartController::removeProduct
+  methods: DELETE
+  requirements:
+    cartId: '\w+'
+    productId: '\w+'
